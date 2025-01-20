@@ -92,14 +92,14 @@ a {
     "main right"
     "footer footer";
   grid-auto-rows: min-content;
-  grid-template-columns: 650px 350px;
+  grid-template-columns: 65% 35%;
   grid-gap: 10px;
   justify-content: center;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .container {
     grid-template:
       "header"
@@ -108,6 +108,24 @@ a {
       "footer";
     grid-template-columns: 100%;
     grid-gap: 0px;
+    width: 75%;
+  }
+
+  .right div:first-of-type {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    grid-template:
+      "header"
+      "main"
+      "right"
+      "footer";
+    grid-template-columns: 100%;
+    grid-gap: 0px;
+    width: 100%;
   }
 
   .right div:first-of-type {
