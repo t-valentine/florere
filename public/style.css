@@ -1,18 +1,116 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-body {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 90vh;
+@font-face {
+  font-family: Luciole;
+  src: url(./assets/luciole/Luciole-Regular.ttf), format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-div {
+@font-face {
+  font-family: Luciole;
+  src: url(./assets/luciole/Luciole-Bold.ttf), format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Luciole;
+  src: url(./assets/luciole/Luciole-Bold-Italic.ttf), format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+:root {
+  --main-bg-color: #74b5ab;
+  --main-div-color: #223f50;
+  --secondary-div-color: #4d7c80;
+  --main-text-color: white;
+  --secondary-text-color: #b4dcb4;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: Luciole, serif;
+  background-color: var(--main-bg-color);
+}
+
+.header {
+  grid-area: header;
+}
+
+.header,
+.footer {
   text-align: center;
 }
 
-h1,
-a,
-p {
-  font-family: "Atkinson Hyperlegible", serif;
+.main {
+  grid-area: main;
+}
+
+.right {
+  grid-area: right;
+}
+
+.main div,
+.right div {
+  background-color: var(--main-div-color);
+  color: var(--main-text-color);
+  padding: 15px;
+  margin: 20px 0;
+}
+
+#nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#nav-menu a {
+  background-color: var(--secondary-div-color);
+  color: var(--secondary-text-color);
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+a {
+  color: var(--secondary-text-color);
+}
+
+#socials {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template:
+    "header header"
+    "main right"
+    "footer footer";
+  grid-auto-rows: min-content;
+  grid-template-columns: 650px 350px;
+  grid-gap: 10px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template:
+      "header"
+      "main"
+      "right"
+      "footer";
+    grid-template-columns: 100%;
+    grid-gap: 0px;
+  }
+
+  .right div:first-of-type {
+    margin-top: 0;
+  }
 }
